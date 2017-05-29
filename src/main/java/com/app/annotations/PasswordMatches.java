@@ -1,6 +1,6 @@
-package com.app.notes;
+package com.app.annotations;
 
-import com.app.Service.PasswordMatchesValidator;
+import com.app.service.PasswordMatchesValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

@@ -1,4 +1,4 @@
-package com.app.notes;
+package com.app.repositories;
 
 
 import com.app.model.Note;

@@ -1,7 +1,7 @@
-package com.app.Service;
+package com.app.service;
 
+import com.app.annotations.PasswordMatches;
 import com.app.model.User;
-import com.app.notes.PasswordMatches;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

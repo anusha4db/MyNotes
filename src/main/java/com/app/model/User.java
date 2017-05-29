@@ -1,6 +1,6 @@
 package com.app.model;
 
-import com.app.notes.PasswordMatches;
+import com.app.annotations.PasswordMatches;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

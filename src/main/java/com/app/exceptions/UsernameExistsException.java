@@ -1,4 +1,4 @@
-package com.app.Service;
+package com.app.exceptions;
 
 
 public class UsernameExistsException extends Exception {

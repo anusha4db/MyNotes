@@ -1,8 +1,9 @@
-package com.app.Service;
+package com.app.service;
 
 
+import com.app.exceptions.UsernameExistsException;
 import com.app.model.User;
-import com.app.notes.UserRepository;
+import com.app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

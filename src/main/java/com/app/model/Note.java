@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "notes")
+@Table(name = "repositories")
 public class Note {
 
     @Id

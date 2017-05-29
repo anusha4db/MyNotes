@@ -1,9 +1,9 @@
 package com.app.controllers;
 
 
-import com.app.Service.UserServiceImpl;
-import com.app.Service.UsernameExistsException;
+import com.app.exceptions.UsernameExistsException;
 import com.app.model.User;
+import com.app.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

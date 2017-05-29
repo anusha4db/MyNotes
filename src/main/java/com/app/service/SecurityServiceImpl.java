@@ -1,4 +1,4 @@
-package com.app.Service;
+package com.app.service;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

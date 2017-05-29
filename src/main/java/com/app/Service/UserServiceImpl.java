@@ -4,7 +4,6 @@ package com.app.Service;
 import com.app.model.User;
 import com.app.notes.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,8 +13,7 @@ public class UserServiceImpl {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Transactional
     public User registerNewUserAccount(User user) throws UsernameExistsException {
@@ -38,11 +36,8 @@ public class UserServiceImpl {
     private boolean usernameExist(String username) {
         User user = userRepository.findByUsername(username);
 
-        if (user != null) {
-            return true;
-        }
+        return user != null;
 
-        return false;
     }
 
 

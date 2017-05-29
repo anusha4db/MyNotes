@@ -31,13 +31,14 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/test").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/test").hasAnyRole()
                 .anyRequest().authenticated()
-                /*.and()
+                .and()
                 .formLogin()
                 .loginPage("/login")
-                .permitAll()*/
+                .permitAll()
+                .failureUrl("/loginError")
                 .and()
                 .logout()
                 .permitAll();

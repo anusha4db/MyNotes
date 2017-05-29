@@ -8,38 +8,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.context.request.WebRequest;
 
 import javax.validation.Valid;
 
 @Controller
-public class LoginRegisterController {
+public class RegisterController {
 
     @Autowired
     private UserServiceImpl userService;
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/register")
     public String login(Model model){
 
         model.addAttribute("User", new User());
 
-        return "login";
-    }
-    @GetMapping(value = "/test")
-    public String test(){
-        return "test";
+        return "register";
     }
 
-    @PostMapping(value = "/login")
+
+    @PostMapping(value = "/register")
     public String registerUser(@ModelAttribute("User")@Valid User user,
-                                     BindingResult result,
-                                     WebRequest request,
-                                     Errors errors) throws UsernameExistsException {
+                               BindingResult result) throws UsernameExistsException {
         User newUser = new User();
         if (!result.hasErrors()){
             newUser = this.createUserAccount(user, result);
@@ -50,7 +43,7 @@ public class LoginRegisterController {
         }
 
 
-        return "login";
+        return "register";
 
     }
 

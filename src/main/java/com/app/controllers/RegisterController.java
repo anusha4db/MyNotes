@@ -22,7 +22,7 @@ public class RegisterController {
     private UserServiceImpl userService;
 
     @GetMapping(value = "/register")
-    public String login(Model model){
+    public String register(Model model) {
 
         model.addAttribute("User", new User());
 
@@ -31,20 +31,22 @@ public class RegisterController {
 
 
     @PostMapping(value = "/register")
-    public String registerUser(@ModelAttribute("User")@Valid User user,
-                               BindingResult result) throws UsernameExistsException {
+    public String registerUser(@ModelAttribute("User") @Valid User user,
+                               BindingResult result, Model model) throws UsernameExistsException {
         User newUser = new User();
-        if (!result.hasErrors()){
+        if (!result.hasErrors()) {
             newUser = this.createUserAccount(user, result);
-        }
-        if (newUser == null){
-            result.addError(new FieldError("User","username",
-                    "There is already an account with that username: " + user.getUsername()));
-        }
 
+            if (newUser == null) {
+                result.addError(new FieldError("User", "username",
+                        "There is already an account with that username: " + user.getUsername()));
+            } else {
+                model.addAttribute("registerSuccessful", true);
+            }
+
+        }
 
         return "register";
-
     }
 
     private User createUserAccount(User user, BindingResult result) {

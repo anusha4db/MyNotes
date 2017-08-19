@@ -1,13 +1,15 @@
 package com.app.repositories;
 
 
-import com.app.model.Note;
+import com.app.model.UserNote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface NoteRepository extends JpaRepository<Note, Long> {
+public interface NoteRepository extends JpaRepository<UserNote, Long> {
 
-    List<Note> findByTitleContainingIgnoreCase(String Title);
+    List<UserNote> findAllByUsernameOrderByTitle(String username);
+
+    UserNote findById(String id);
 
 }

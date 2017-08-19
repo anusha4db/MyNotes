@@ -17,7 +17,7 @@
 
 <body style="background-color: #F6F6F6">
 
-<div class="active" th:insert="navbar :: nav">
+<div class="active" th:insert="navbar :: #nav">
 
 </div>
 
@@ -26,9 +26,14 @@
 
         <div>
             <!--/*@thymesVar id="User" type=""*/-->
-            <form action="#" th:action="@{/register}" th:object="${User}" method="post" class="form-horizontal">
+            <form th:action="@{/register}" th:object="${User}" method="post" class="form-horizontal">
 
                 <h1 style="position:relative; left: 140px;">Create an Account</h1>
+                <div th:if="${registerSuccessful}" style="position: relative; left: 325px; width: 780px">
+                    <div class="alert alert-success">
+                        Account succesfully created.
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label for="registerUsername" class="col-sm-2 control-label">Username</label>

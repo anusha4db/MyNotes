@@ -29,7 +29,7 @@ public class UserServiceImpl {
         newUser.setUsername(user.getUsername());
         newUser.setPassword(user.getPassword());
         newUser.setPasswordConfirmation(user.getPasswordConfirmation());
-        newUser.setRole("USER");
+        newUser.setRole("ROLE_USER");
         return userRepository.save(newUser);
 
     }

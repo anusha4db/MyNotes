@@ -21,7 +21,7 @@
         <tbody>
         <tr th:each="UserNote,IterStats : ${notesList}">
             <td th:text="${IterStats.count}"></td>
-            <td><a th:text="${UserNote.title}" th:href="@{'/myNotes/edit/' + ${UserNote.id}}"></a></td>
+            <td><a th:text="${UserNote.title}" th:href="@{'/EditNote/' + ${UserNote.id}}"></a></td>
         </tr>
         </tbody>
     </table>

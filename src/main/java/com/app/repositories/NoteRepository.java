@@ -10,6 +10,6 @@ public interface NoteRepository extends JpaRepository<UserNote, Long> {
 
     List<UserNote> findAllByUsernameOrderByTitle(String username);
 
-    UserNote findById(String id);
+    UserNote findById(Long id);
 
 }

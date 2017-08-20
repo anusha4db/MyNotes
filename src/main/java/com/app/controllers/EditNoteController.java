@@ -26,12 +26,21 @@ public class EditNoteController {
 
     }
 
-    @PostMapping(value = "EditNote/{id}")
+    @PostMapping(value = "EditNote/{id}", params = "submit=edit")
     public String saveNote(@ModelAttribute("userNote")UserNote parsedUserNote){
 
         editNoteService.saveNote(parsedUserNote);
 
-        return "editNote";
+        return "redirect:/myNotes";
+
+    }
+
+    @PostMapping(value = "EditNote/{id}", params = "submit=delete")
+    public String deleteNote(@ModelAttribute("userNote")UserNote parsedUserNote){
+
+        editNoteService.deleteNote(parsedUserNote);
+
+        return "redirect:/myNotes";
 
     }
 }

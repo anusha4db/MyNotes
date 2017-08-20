@@ -33,4 +33,9 @@ public class EditNoteService {
         noteRepository.save(userNote);
     }
 
+    public void deleteNote (UserNote userNote){
+        noteRepository.delete(userNote);
+
+    }
+
 }

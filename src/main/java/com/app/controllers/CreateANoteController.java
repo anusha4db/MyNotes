@@ -30,7 +30,7 @@ public class CreateANoteController {
     public String saveANote(@ModelAttribute("UserNote") @Valid UserNote note, BindingResult result, Model model) {
 
         if (!result.hasErrors()) {
-            createANoteService.saveANote(note);
+            createANoteService.saveANoteUsingCurrentUser(note);
             model.addAttribute("noteSaved", true);
         } else {
             model.addAttribute("noteFailedToSave", true);

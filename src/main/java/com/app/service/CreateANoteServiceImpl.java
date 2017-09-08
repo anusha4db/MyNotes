@@ -22,7 +22,7 @@ public class CreateANoteServiceImpl {
     UserRepository userRepository;
 
     @Transactional
-    public void saveANote(UserNote userNote) {
+    public void saveANoteUsingCurrentUser(UserNote userNote) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -32,6 +32,11 @@ public class CreateANoteServiceImpl {
         userNote.setTitle(userNote.getTitle());
         userNote.setNoteContent(userNote.getNoteContent());
 
+        noteRepository.save(userNote);
+    }
+
+    @Transactional
+    public void saveANote(UserNote userNote) {
         noteRepository.save(userNote);
     }
 

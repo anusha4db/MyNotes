@@ -22,8 +22,8 @@ public class EditNoteService {
         return notesList;
     }
 
-    public UserNote getUserNote (Long id){
-        return noteRepository.findById(id);
+    public UserNote getUserNote(Long userId) {
+        return noteRepository.findById(userId);
     }
 
     public void saveNote(UserNote userNote){

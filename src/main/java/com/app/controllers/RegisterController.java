@@ -32,10 +32,8 @@ public class RegisterController {
 
     @PostMapping(value = "/register")
     public String registerUser(@ModelAttribute("User") @Valid User user,
-                               BindingResult result, Model model) throws UsernameExistsException {
-        User newUser = new User();
-        if (!result.hasErrors()) {
-            newUser = this.createUserAccount(user, result);
+                               BindingResult result, Model model) {
+        User newUser = this.createUserAccount(user, result);
 
             if (newUser == null) {
                 result.addError(new FieldError("User", "username",
@@ -44,13 +42,13 @@ public class RegisterController {
                 model.addAttribute("registerSuccessful", true);
             }
 
-        }
+
 
         return "register";
     }
 
     private User createUserAccount(User user, BindingResult result) {
-        User registered = null;
+        User registered;
         try {
             registered = userService.registerNewUserAccount(user);
         } catch (UsernameExistsException e) {

@@ -20,8 +20,4 @@ public @interface PasswordMatches {
     String message() default "Passwords don't match";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-
-    //spring.datasource.url=jdbc:mysql://127.0.0.1:3306/notes
-//spring.datasource.username=root
-//spring.datasource.password=root
 }

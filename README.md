@@ -1,6 +1,6 @@
 # TODO
--Tests
--Refactoring
+* Tests
+* Refactoring
 
 # MyNotes
 Web-app where you can add,edit and delete personal notes.
